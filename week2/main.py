@@ -41,3 +41,6 @@ if args.command=="compare":
 
     if req1.status_code != 200 or req2.status_code != 200:
         print("API returned with error")
+        sys.exit(1)
+    
+    p1 = req1.json()
