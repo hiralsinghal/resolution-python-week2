@@ -1,0 +1,11 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "resolution_week2_hiralsinghal"
+version = "0.0.1"
+dependencies = []
+
+[project.scripts]
+contactbook = "resolution_week2_hiralsinghal.main:main"
