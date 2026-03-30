@@ -15,6 +15,10 @@ compare_parser = subparsers.add_parser("compare", help="Compare two pokemon")
 compare_parser.add_argument("pokemon1",type=str, help="First Pokemon")
 compare_parser.add_argument("pokemon2", type=str, help="Second Pokemon")
 
+group = pokemon_parser.add_mutually_exclusive_group()
+group.add_argument("--height", action="store_true", help="Show height")
+group.add_argument("--weight", action="store_true", help="Show weight")
+
 args = parser.parse_args()
 
 if args.command == "greet":
@@ -27,13 +31,17 @@ if args.command=="pokemon":
         sys.exit(1)
     api_parsed = req.json()
     print(f'\033[1m{args.pokemon.capitalize()}\033[0m')
-    print(f"Height: {api_parsed['height']}")
-    print(f"Weight: {api_parsed['weight']}")
     print(f"Ablility 1: {api_parsed['abilities'][0]['ability']['name'].capitalize()}")
     print(f"Ability 1 being hidden is {api_parsed['abilities'][0]['is_hidden']}")
     print(f"Ability 2: {api_parsed['abilities'][1]['ability']['name'].capitalize()}")
     print(f"Ability 2 being hidden is {api_parsed['abilities'][1]['is_hidden']}")
     print(f"Move: {api_parsed['moves'][0]['move']['name'].capitalize()}")
+
+    if args.height:
+        print(f"Height: {api_parsed['height']}")
+    
+    if args.weight:
+        print(f"Weight: {api_parsed['weight']}")
 
 if args.command=="compare":
     req1 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{args.pokemon1}")
