@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "resolution_week2_hiralsinghal"
+name = "resolution_week2_warmup_hiralsinghal"
 version = "0.0.1"
 dependencies = []
 
 [project.scripts]
-contactbook = "resolution_week2_hiralsinghal.main:main"
+contactbook = "resolution_week2_warmup_hiralsinghal.main:main"
