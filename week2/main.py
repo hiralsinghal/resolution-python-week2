@@ -44,3 +44,11 @@ if args.command=="compare":
         sys.exit(1)
     
     p1 = req1.json()
+    p2 = req2.json()
+
+    print(f"Pokemon: {args.pokemon1.capitalize()} {args.pokemon2.capitalize()}")
+    print(f"Height: {p1['height']} {p2['height']}")
+    print(f"Weight: {p1['weight']} {p2['weight']}")
+    print(f"Ability 1: {p1['abilities'][0]['ability']['name'].capitalize()} {p2['abilities'][0]['ability']['name'].capitalize()}")
+    print(f"Ability 2: {p1['abilities'][1]['ability']['name'].capitalize()} {p2['abilities'][1]['ability']['name'].capitalize()}")
+    print(f"Move: {p1['moves'][0]['move']['name'].capitalize()} {p2['moves'][0]['move']['name']}")
